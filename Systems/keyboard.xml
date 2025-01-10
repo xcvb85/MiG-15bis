@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+      <key n="1">
+        <name>Ctrl-A</name>
+        <desc>Altitude Lock</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            if (getprop("autopilot/locks/altitude") == "altitude-hold") {
+              setprop("autopilot/locks/altitude", "");
+            }
+            else {
+              setprop("autopilot/settings/target-altitude-ft", getprop("position/altitude-ft"));
+              setprop("autopilot/locks/altitude", "altitude-hold");
+            }
+          </script>
+        </binding>
+      </key>
+
+      <key n="2">
+        <name>Ctrl-B</name>
+        <desc>Toggle speedbrakes</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/speedbrakescontrol/control-input</property>
+        </binding>
+      </key>
+
+      <key n="4">
+        <name>Ctrl-D</name>
+        <desc>Up/Down heaDsight</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/headsight/up-command</property>
+        </binding>
+      </key>
+
+      <key n="5">
+        <name>Ctrl-E</name>
+        <desc>Toggle Engine instrumEntation powEr</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/leftpanel/engine-control-input</property>
+        </binding>
+      </key>
+
+      <key n="6">
+        <name>Ctrl-F</name>
+        <desc>Toggle cannon saFer switch</desc>
+        <binding>
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/stick/safer-input</property>
+        </binding>
+      </key>
+
+      <key n="8">
+        <name>Ctrl-H</name>
+        <desc>Heading Hold</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            if (getprop("autopilot/locks/heading") == "dg-heading-hold") {
+              setprop("autopilot/locks/heading", "");
+              setprop("sim/messages/copilot", "warning: auto-coordination is off, toggle with Shift+L if necessary");
+            }
+            else {
+              setprop("controls/flight/auto-coordination", 0);
+              setprop("autopilot/settings/heading-bug-deg",
+                      getprop("instrumentation/heading-indicator/indicated-heading-deg"));
+              setprop("autopilot/locks/heading", "dg-heading-hold");
+            }
+          </script>
+        </binding>
+      </key>
+
+      <key n="11">
+        <name>Ctrl-K</name>
+        <desc>Toggle engine emergency braKe</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/stopcontrol/lever-input</property>
+        </binding>
+      </key>
+
+      <key n="14">
+        <name>Ctrl-N</name>
+        <desc>no nav1 lock</desc>
+        <binding>
+          <command>null</command>
+        </binding>
+      </key>
+
+      <key n="16">
+        <name>Ctrl-P</name>
+        <desc>Pitch hold</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            if (getprop("autopilot/locks/altitude") == "pitch-hold") {
+              setprop("autopilot/locks/altitude", "");
+            }
+            else {
+              setprop("autopilot/settings/target-pitch-deg",
+                      getprop("orientation/pitch-deg"));
+              setprop("autopilot/locks/altitude", "pitch-hold");
+            }
+          </script>
+        </binding>
+      </key>
+
+      <key n="17">
+        <name>Ctrl-Q</name>
+        <desc>Toggle main pump power switch</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/leftpanel/pump-input</property>
+        </binding>
+      </key>
+
+      <key n="19">
+        <name>Ctrl-S</name>
+        <desc>Toggle Starter power switch</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/leftpanel/ignition-input</property>
+        </binding>
+      </key>
+
+      <key n="20">
+        <name>Ctrl-T</name>
+        <desc>No terrain following mode</desc>
+        <binding>
+          <command>null</command>
+        </binding>
+      </key>
+
+      <key n="23">
+        <name>Ctrl-W</name>
+        <desc>no wing leveler</desc>
+        <binding>
+          <command>null</command>
+        </binding>
+      </key>
+
+      <key n="67">
+        <name>C</name>
+        <desc>Toggle Canopy</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+           setprop("fdm/jsbsim/systems/canopy/command", getprop("fdm/jsbsim/gear/wow") * (1 - getprop("fdm/jsbsim/systems/canopy/command")));
+          </script>
+        </binding>
+      </key>
+
+      <key n="68">
+        <name>Shift-D</name>
+        <repeatable type="bool">true</repeatable>
+        <desc>More sight target Distance</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.more_sight_distance()</script>
+        </binding>
+      </key>
+
+      <key n="69">
+        <name>Shift-E</name>
+        <desc>Toggle gEnerator switch</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/rightpanel/generator-input</property>
+        </binding>
+      </key>
+
+      <key n="70">
+        <name>Shift-F</name>
+        <desc>Drop tanks to Free Float</desc>
+        <binding>
+          <command>nasal</command>
+          <script>MIG15BIS.press_bomb()</script>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>nasal</command>
+            <script>MIG15BIS.unpress_bomb()</script>
+          </binding>
+        </mod-up>
+      </key>
+
+      <key n="71">
+        <name>Shift-G</name>
+        <desc>Gear down </desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.gear_control_down()</script>
+        </binding>
+      </key>
+
+      <key n="75">
+        <name>Shift-K</name>
+        <desc>Toggle trajectory markers</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+
+      <key n="76">
+        <name>Shift-L</name>
+        <desc>Toggle auto-coordination</desc>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/flight/auto-coordination</property>
+        </binding>
+      </key>
+
+      <key n="81">
+        <name>Shift-Q</name>
+        <desc>Less aileron booster</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.less_booster()</script>
+        </binding>
+      </key>
+
+      <key n="82">
+        <name>Shift-R</name>
+        <desc>On/Off low throttle holder</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/gascontrol/fix-command</property>
+        </binding>
+      </key>
+
+      <key n="83">
+        <name>Shift-S</name>
+        <desc>Earth/Air Starter ignition type</desc>
+        <!-- XXX n="2" is workaround for FG issue: https://sourceforge.net/p/flightgear/codetickets/2459/ -->
+        <binding n="2">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/leftpanel/ignition-type-input</property>
+        </binding>
+      </key>
+
+      <key n="85">
+        <name>Shift-U</name>
+        <desc>Update Drop View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.update_drop_view_pos()</script>
+        </binding>
+      </key>
+
+      <key n="96">
+        <name>`</name>
+        <desc>Toggle engine isolation valve</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/leftpanel/isolation-valve-input</property>
+        </binding>
+      </key>
+
+      <key n="100">
+        <name>d</name>
+        <repeatable type="bool">true</repeatable>
+        <desc>Less sight target Distance</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.less_sight_distance()</script>
+        </binding>
+      </key>
+
+      <key n="101">
+        <name>e</name>
+        <desc>Toggle battEry switch</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/rightpanel/battery-input</property>
+        </binding>
+      </key>
+
+      <key n="102">
+        <name>f</name>
+        <desc>Fire cannons</desc>
+        <binding>
+          <command>nasal</command>
+          <script>MIG15BIS.press_fire()</script>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>nasal</command>
+            <script>MIG15BIS.unpress_fire()</script>
+          </binding>
+        </mod-up>
+      </key>
+
+      <key n="103">
+        <name>g</name>
+        <desc>Gear up </desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.gear_control_up()</script>
+        </binding>
+      </key>
+
+      <key n="106">
+        <name>j</name>
+        <desc>Close speedbrakes</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>setprop("fdm/jsbsim/systems/speedbrakescontrol/control-input", 0)</script>
+        </binding>
+      </key>
+
+      <key n="107">
+        <name>k</name>
+        <desc>Open speedbrakes</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>setprop("fdm/jsbsim/systems/speedbrakescontrol/control-input", 1)</script>
+        </binding>
+      </key>
+
+      <key n="108">
+        <name>l</name>
+        <desc>Toggle Landing Light</desc>
+        <binding>
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/rightpanel/headlight-input</property>
+        </binding>
+      </key>
+
+      <key n="113">
+        <name>q</name>
+        <desc>More aileron booster</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>MIG15BIS.more_booster()</script>
+        </binding>
+      </key>
+
+      <key n="114">
+        <name>r</name>
+        <desc>Lock/Unlock thRottle handle</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/gascontrol/lock-command</property>
+        </binding>
+      </key>
+
+      <key n="115">
+        <name>s</name>
+        <desc>Start engine</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>setprop("controls/engines/engine/starter-key", 1)</script>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>nasal</command>
+            <script>setprop("controls/engines/engine/starter-key", 0)</script>
+          </binding>
+        </mod-up>
+      </key>
+
+      <key n="117">
+        <name>U</name>
+        <desc>Toggle fUel source, main or balance tank</desc>
+        <binding n="0">
+          <command>property-toggle</command>
+          <property>fdm/jsbsim/systems/fuelcontrol/control-input</property>
+        </binding>
+      </key>
+
+      <key n="121">
+        <name>y</name>
+        <desc>Hide/show flight stick</desc>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/model/show_stick</property>
+        </binding>
+      </key>
+
+</PropertyList>

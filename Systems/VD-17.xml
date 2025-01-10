@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME       "VD-17">
+ <!ENTITY U          "systems/instr/&NAME;">
+]>
+
+<system name="VD-17 altimeter">
+ <!-- Двухстрелочный высотомер ВД-17 -->
+
+
+ <property value="760.0">&U;/pot/pressure-mmHg</property>
+
+
+ <channel name="VM" execrate="2">
+
+  <fcs_function name="&U;/gauge/altitude-m">
+   <function>
+    <difference>
+     <product>
+      <p>atmosphere/pressure-altitude</p>
+      <v>0.3048</v>
+     </product>
+     <product>
+      <v>44309.34</v>
+      <difference>
+       <v>1.0</v>
+       <pow>
+        <product>
+         <p>&U;/pot/pressure-mmHg</p>
+         <!-- 1/760 -->
+         <v>0.001315789</v>
+        </product>
+        <v>0.19028</v>
+       </pow>
+      </difference>
+     </product>
+    </difference>
+   </function>
+   <clipto>
+    <min>0.0</min>
+    <max>17000.0</max>
+   </clipto>
+  </fcs_function>
+
+ </channel>
+
+</system>

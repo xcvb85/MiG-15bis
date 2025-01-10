@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+ <heading-indicator>
+  <name>heading-indicator</name>
+  <number>0</number>
+  <suction>systems/vacuum/suction-inhg</suction>
+ </heading-indicator>
+
+ <magnetic-compass>
+  <name>magnetic-compass</name>
+  <number>0</number>
+ </magnetic-compass>
+
+ <comm-radio>
+  <name>comm</name>
+  <number>0</number>
+ </comm-radio>
+
+ <!-- АРК-5 -->
+ <adf>
+  <name>adf</name>
+  <number>0</number>
+ </adf>
+
+ <!-- МРП-48П -->
+ <marker-beacon>
+  <name>marker-beacon</name>
+  <number>0</number>
+ </marker-beacon>
+
+ <!-- СРО -->
+ <!-- Using the standard RBS transponder, because FG does not have SRO -->
+ <transponder/>
+
+</PropertyList>

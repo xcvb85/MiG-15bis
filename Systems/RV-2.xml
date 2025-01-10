@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME       "RV-2">
+ <!ENTITY U          "systems/instr/&NAME;">
+ <!ENTITY INDICATOR  "systems/instr/UV-2">
+]>
+
+<system name="RV-2 radar altimeter">
+ <!-- Радиовысотомер малых высот РВ-2 -->
+
+
+ <property value="1.2">&U;/tuning/H0-m</property>
+
+
+ <property value="1">&INDICATOR;/switch/power</property>
+ <!-- Диапазон: 0: 0-120 м, 1: 0-1200 м. -->
+ <property>&INDICATOR;/switch/range</property>
+
+ <property>systems/elec/output/&NAME;/DC27-V</property>
+ <property>systems/elec/output/&NAME;/DC27-ok</property>
+
+
+ <channel name="RV-2 slow" execrate="8">
+
+  <fcs_function name="systems/elec/output/&NAME;/DC27-A">
+   <function>
+    <product>
+     <p>&INDICATOR;/switch/power</p>
+     <p>systems/elec/output/&NAME;/DC27-V</p>
+     <!-- <= 70 W @ 26 V (via РУ-1АМ) -->
+     <v>0.104</v>
+    </product>
+   </function>
+  </fcs_function>
+
+ </channel>
+
+
+ <channel name="RV-2" execrate="2">
+
+  <!--
+  TODO This only samples a single point of terrain right under the
+  TODO aircraft. When FG radar is ready, use its output instead of
+  TODO position/h-agl-km and remove the homegrown error (the
+  TODO <quotient>).
+  -->
+
+  <fcs_function name="&INDICATOR;/gauge/height-m">
+   <function>
+    <product>
+     <p>&INDICATOR;/switch/power</p>
+     <p>systems/elec/output/&NAME;/DC27-ok</p>
+     <difference>
+      <product>
+       <p>position/h-agl-km</p>
+       <v>1000.0</v>
+       <quotient>
+        <v>1.0</v>
+        <max>
+         <cos>
+          <max>
+           <difference>
+            <sqrt>
+             <sum>
+              <product>
+               <p>attitude/theta-rad</p>
+               <p>attitude/theta-rad</p>
+              </product>
+              <product>
+               <p>attitude/phi-rad</p>
+               <p>attitude/phi-rad</p>
+              </product>
+             </sum>
+            </sqrt>
+            <!-- = 15 deg -->
+            <v>0.2617993877991494</v>
+           </difference>
+           <v>0.0</v>
+          </max>
+         </cos>
+         <v>0.0000001</v>
+        </max>
+       </quotient>
+      </product>
+      <p>&U;/tuning/H0-m</p>
+     </difference>
+     <ifthen>
+      <p>&INDICATOR;/switch/range</p>
+      <v>0.1</v>
+      <v>1.0</v>
+     </ifthen>
+    </product>
+   </function>
+   <clipto>
+    <min>0.0</min>
+    <max>120.0</max>
+   </clipto>
+  </fcs_function>
+
+ </channel>
+
+
+</system>

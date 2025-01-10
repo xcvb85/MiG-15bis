@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME "TGZ-47">
+ <!ENTITY U    "systems/instr/&NAME;">
+]>
+
+<system name="TGZ-47 exhaust gas temperature indicator">
+ <!-- Термометр выходящих газов с заторможенным потоком ТГЗ-47 -->
+
+
+ <property>systems/elec/output/&NAME;/DC27-V</property>
+
+
+ <channel name="EMI-3R" execrate="2">
+
+  <fcs_function name="&U;/gauge/EGT-degC">
+   <function>
+    <product>
+     <p>systems/elec/output/&NAME;/DC27-V</p>
+     <!-- TODO Placeholder input. Take out when engine is de-nasalized. -->
+     <p>/engines/engine/egt-degc</p>
+     <!-- = 1 / 27 -->
+     <v>0.037</v>
+    </product>
+   </function>
+  </fcs_function>
+
+  <fcs_function name="&U;/gauge/EGT-animation1">
+   <function>
+    <product>
+     <sum>
+      <p>/engines/engine/egt-degc</p>
+      <v>-500</v>
+     </sum>
+     <v>0.05</v>
+    </product>
+   </function>
+  </fcs_function>
+
+  <fcs_function name="&U;/gauge/EGT-animation2">
+   <function>
+    <product>
+     <sum>
+      <p>/engines/engine/egt-degc</p>
+      <v>-500</v>
+     </sum>
+     <v>0.03</v>
+    </product>
+   </function>
+  </fcs_function>
+ </channel>
+
+
+</system>

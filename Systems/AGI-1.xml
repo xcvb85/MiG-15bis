@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY U "systems/instr/AGI-1">
+]>
+
+<system name="AGI-1 artificial horizon">
+ <!-- Авиагоризонт АГИ-1 -->
+
+
+ <property>&U;/pot/pitch-deg</property>
+ <property>&U;/button/cage</property>
+
+ <property>systems/elec/output/AGI-1/DC27-V</property>
+ <property>systems/elec/output/AGI-1/DC27-ok</property>
+
+
+ <channel name="AGI-1 slow" execrate="8">
+
+  <fcs_function name="systems/elec/output/AGI-1/DC27-A">
+   <function>
+    <product>
+     <p>systems/elec/output/AGI-1/DC27-V</p>
+     <!-- = 3 A @ 27 V (via ПАГ-1ФП inverter) -->
+     <v>0.111</v>
+    </product>
+   </function>
+  </fcs_function>
+
+  <switch name="&U;/func/pitch-err-deg">
+   <default value="&U;/func/pitch-err-deg"/>
+   <test logic="OR" value="accelerations/pendulum-pitch-error-deg">
+    systems/elec/output/AGI-1/DC27-ok EQ 0
+    &U;/button/cage NE 0
+   </test>
+  </switch>
+
+  <switch name="&U;/func/roll-err-deg">
+   <default value="&U;/func/roll-err-deg"/>
+   <test logic="OR" value="accelerations/pendulum-roll-error-deg">
+    systems/elec/output/AGI-1/DC27-ok EQ 0
+    &U;/button/cage NE 0
+   </test>
+  </switch>
+
+ </channel>
+
+
+ <channel name="AGI-1" execrate="2">
+
+  <!--
+   TODO Error: horizontal flight 1 deg, after aerobatics <=5 deg
+   TODO Power-up: 2 min above -30C, 3 min below
+   TODO Roll correction disconnect: roll 6..13 deg
+   TODO Correction time from 20 deg error: pitch 3.5-7 min, roll 2.5-6 min
+   TODO Correction time asymmetry: <=2.5 min
+  -->
+
+  <fcs_function name="&U;/gauge/pitch-deg">
+   <function>
+    <ifthen>
+     <p>systems/elec/output/AGI-1/DC27-ok</p>
+     <!-- Triangle wave -90..90 -->
+     <product>
+      <asin>
+       <sin>
+        <product>
+         <sum>
+          <p>attitude/theta-deg</p>
+          <p>&U;/func/pitch-err-deg</p>
+         </sum>
+         <!-- = 2 * pi / 360 -->
+         <v>0.0175</v>
+        </product>
+       </sin>
+      </asin>
+      <!-- = 2 * 90 / pi -->
+      <v>57.2975</v>
+     </product>
+     <p>&U;/gauge/pitch-deg</p>
+    </ifthen>
+   </function>
+  </fcs_function>
+
+  <fcs_function name="&U;/gauge/roll-deg">
+   <function>
+    <ifthen>
+     <p>systems/elec/output/AGI-1/DC27-ok</p>
+     <sum>
+      <p>attitude/phi-deg</p>
+      <p>&U;/func/roll-err-deg</p>
+     </sum>
+     <p>&U;/gauge/roll-deg</p>
+    </ifthen>
+   </function>
+   <clipto type="cyclic">
+    <min>-180.0</min>
+    <max>180.0</max>
+   </clipto>
+  </fcs_function>
+
+  <lag_filter name="&U;/gauge/ball-deg">
+   <input>-accelerations/pendulum-roll-deg</input>
+   <c1>20.0</c1>
+   <clipto>
+    <min>-8.0</min>
+    <max>8.0</max>
+   </clipto>
+  </lag_filter>
+
+ </channel>
+
+
+</system>

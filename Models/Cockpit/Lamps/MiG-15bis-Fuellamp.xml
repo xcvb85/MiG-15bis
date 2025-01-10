@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Fuellamp.ac</path>
+
+<!--
+  <animation>
+    <type>pbr</type>
+    <object-name>FU_Lamp</object-name>
+    <object-name>FU_Glass</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>systems/electrical-real/volts-norm</property>
+          <value>0.9</value>
+        </greater-than>
+        <less-than>
+          <property>consumables/fuel/tank[1]/level-m3</property>
+          <value>0.300</value>
+        </less-than>
+      </and>
+    </condition>
+    <emission>
+      <red>9</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+  -->
+</PropertyList> 

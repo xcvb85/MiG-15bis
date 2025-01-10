@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME       "SD-3">
+ <!ENTITY U          "systems/instr/&NAME;">
+]>
+
+<system name="SD-3 fuel pressure warning">
+ <!-- Сигнализатор давления топлива СД-3 -->
+
+
+ <property>systems/elec/output/&NAME;/DC27-ok</property>
+
+
+ <channel name="SD-3" execrate="2">
+
+  <switch name="&U;/light/fuel-pressure-low">
+   <default value="0"/>
+   <test value="systems/elec/output/&NAME;/DC27-ok">
+    propulsion/engine[0]/fuel-pressure-kgf_cm2 LT 0.3
+   </test>
+  </switch>
+
+ </channel>
+
+
+</system>

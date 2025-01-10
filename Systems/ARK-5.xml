@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY U "systems/instr/ARK-5">
+]>
+
+<system name="ARK-5 automatic direction finder">
+ <!-- Автоматический радиокомпас АРК-5 -->
+
+
+ <!-- Режим. 0: Выкл., 1: Комп, 2: Ант, 3: Рамка -->
+ <property value="1">&U;/switch/mode</property>
+ <!-- Рамка. -1.0 .. 1.0. -->
+ <!-- Actually a switch with unknown number of positions. -->
+ <property>&U;/pot/frame</property>
+ <!-- Диапазон. 0: 130-310, 1: 310-640, 2: 640-1300. -->
+ <property>&U;/switch/band</property>
+ <!-- Модуляция. 0: ТЛФ 1: ТЛГ. -->
+ <property value="1">&U;/switch/cw-ident</property>
+ <!-- -1.0 .. 1.0. -->
+ <property>&U;/pot/tuning</property>
+ <!-- Громкость. 0.0 .. 1.0. -->
+ <property value="0.5">&U;/pot/volume</property>
+ <!-- Подсвет. 0.0 .. 1.0. -->
+ <property value="0.5">&U;/pot/light</property>
+
+ <!-- Привод. 0: Дальний 1: Ближний. -->
+ <property>&U;/switch/inner</property>
+ <!-- Диапазон ближнего маяка. 0: 130-310, 1: 310-640, 2: 640-1300. -->
+ <property>&U;/switch/band-inner</property>
+
+ <property>systems/elec/output/ARK-5/DC27-V</property>
+ <property>systems/elec/output/ARK-5/DC27-ok</property>
+
+
+ <channel name="ARK-5 slow" execrate="8">
+
+  <switch name="&U;/on">
+   <output>&U;/light/on</output>
+   <default value="systems/elec/output/ARK-5/DC27-ok"/>
+   <test value="0">
+    &U;/switch/mode EQ 0
+   </test>
+  </switch>
+
+  <fcs_function name="systems/elec/output/ARK-5/DC27-A">
+   <function>
+    <product>
+     <p>&U;/on</p>
+     <p>systems/elec/output/ARK-5/DC27-V</p>
+     <!-- = 23 A @ 27.5 V (direct + via МА-250 inverter) -->
+     <v>0.836</v>
+    </product>
+   </function>
+  </fcs_function>
+
+  <fcs_function name="&U;/volume-norm">
+   <output>&U;/backend/volume-norm</output>
+   <function>
+    <product>
+     <p>&U;/pot/volume</p>
+     <p>&U;/on</p>
+     <!-- FG does not have modulated beacons. -->
+     <p>&U;/switch/cw-ident</p>
+     <max>
+      <nq>
+       <p>&U;/switch/mode</p>
+       <v>3</v>
+      </nq>
+      <p>&U;/func/deltaA-volume</p>
+     </max>
+    </product>
+   </function>
+  </fcs_function>
+
+  <fcs_function name="&U;/f-kHz">
+   <output>&U;/backend/selected-khz</output>
+   <function>
+    <switch>
+     <ifthen>
+      <p>&U;/switch/inner</p>
+      <property>&U;/switch/band-inner</property>
+      <property>&U;/switch/band</property>
+     </ifthen>
+     <sum>
+      <v>130.0</v>
+      <product>
+       <property>&U;/pot/tuning</property>
+       <v>180.0</v>
+      </product>
+     </sum>
+     <sum>
+      <v>310.0</v>
+      <product>
+       <property>&U;/pot/tuning</property>
+       <v>330.0</v>
+      </product>
+     </sum>
+     <sum>
+      <v>640.0</v>
+      <product>
+       <property>&U;/pot/tuning</property>
+       <v>660.0</v>
+      </product>
+     </sum>
+    </switch>
+   </function>
+  </fcs_function>
+
+  <switch name="&U;/deltaA-ok">
+   <default value="&U;/backend/in-range"/>
+   <test logic="OR" value="0">
+    &U;/switch/mode NE 1
+    &U;/on EQ 0
+   </test>
+  </switch>
+
+  <pure_gain name="&U;/gauge/signal-quality-norm">
+   <input>&U;/backend/in-range</input>
+   <gain>&U;/on</gain>
+  </pure_gain>
+
+  <pure_gain name="&U;/lightsrc/gauge-light-norm">
+   <input>&U;/pot/light</input>
+   <gain>&U;/on</gain>
+  </pure_gain>
+
+ </channel>
+
+
+ <channel name="ARK-5" execrate="2">
+
+  <summer name="&U;/func/deltaA-error-deg">
+   <input>&U;/backend/indicated-bearing-deg</input>
+   <input>-&U;/deltaA-deg</input>
+   <clipto type="cyclic">
+    <min>-180.0</min>
+    <max>180.0</max>
+   </clipto>
+  </summer>
+
+  <switch name="&U;/func/deltaA-error-deg-clip">
+   <default value="&U;/func/deltaA-error-deg"/>
+   <clipto>
+    <min>-1.0</min>
+    <max>1.0</max>
+   </clipto>
+  </switch>
+
+  <fcs_function name="&U;/func/deltaA-volume">
+   <function>
+    <abs>
+     <sin>
+      <toradians>
+       <p>&U;/func/deltaA-error-deg</p>
+      </toradians>
+     </sin>
+    </abs>
+   </function>
+  </fcs_function>
+
+  <switch name="&U;/func/deltaA-input">
+   <default value="&U;/func/deltaA-error-deg-clip"/>
+   <test value="0.0">
+    &U;/on EQ 0
+   </test>
+   <test value="&U;/pot/frame">
+    &U;/switch/mode EQ 3
+   </test>
+  </switch>
+
+  <switch name="&U;/func/deltaA-c1">
+   <default value="30.0"/>
+   <test value="0.0">
+    &U;/on EQ 0
+   </test>
+   <test logic="AND" value="0.0">
+    &U;/switch/mode NE 3
+    &U;/deltaA-ok EQ 0
+   </test>
+  </switch>
+
+  <integrator name="&U;/deltaA-deg">
+   <output>systems/instr/BSUP-2/gauge/bearing-deg</output>
+   <input>&U;/func/deltaA-input</input>
+   <c1>&U;/func/deltaA-c1</c1>
+   <clipto type="cyclic">
+    <min>0.0</min>
+    <max>360.0</max>
+   </clipto>
+  </integrator>
+
+ </channel>
+
+
+</system>

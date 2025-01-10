@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Instruments/MiG-15bis-instruments1.xml</path>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Instruments/MiG-15bis-instruments2.xml</path>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-lamps.xml</path>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Magcompass/MiG-15bis-Magcompass.xml</path>
+    <offsets>
+      <x-m>1.578</x-m>
+      <y-m>-0.175</y-m>
+      <z-m>0.704</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Headsight/MiG-15bis-Headsight.xml</path>
+    <offsets>
+      <x-m>1.545</x-m>
+      <y-m>0</y-m>
+      <z-m>0.672</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Instruments/LowerPanel/MiG-15bis-LowerPanel.xml</path>
+    <offsets>
+      <x-m>1.552</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.200</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+
+</PropertyList> 

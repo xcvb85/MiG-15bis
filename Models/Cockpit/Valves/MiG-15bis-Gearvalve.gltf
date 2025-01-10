@@ -1,0 +1,293 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "GV_Base"
+        },
+        {
+            "mesh" : 1,
+            "name" : "GV_Handle"
+        },
+        {
+            "mesh" : 2,
+            "name" : "GV_Valve"
+        }
+    ],
+    "materials" : [
+        {
+            "emissiveFactor" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ],
+            "name" : "ValveMetal",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 1
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Mesh.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Cylinder.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "MiG-15bis-Gearvalve",
+            "uri" : "MiG-15bis-Gearvalve.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "MiG-15bis-Gearvalve-orm",
+            "uri" : "MiG-15bis-Gearvalve-orm.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 58,
+            "max" : [
+                0.012291805818676949,
+                0.011470000259578228,
+                0.013571000657975674
+            ],
+            "min" : [
+                -0.012102252803742886,
+                -0.010564001277089119,
+                0.0002499995462130755
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 58,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 58,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 144,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 712,
+            "max" : [
+                0.00975400023162365,
+                0.03719500079751015,
+                0.03873100131750107
+            ],
+            "min" : [
+                -0.009650999680161476,
+                -0.03133700042963028,
+                0.019367998465895653
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 712,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 712,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 2340,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 1278,
+            "max" : [
+                0.028820032253861427,
+                0.03223351016640663,
+                0.0283649992197752
+            ],
+            "min" : [
+                -0.02850906364619732,
+                -0.031112002208828926,
+                0.001387999625876546
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 1278,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 1278,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 4749,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 696,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 696,
+            "byteOffset" : 696
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 464,
+            "byteOffset" : 1392
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 1856
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8544,
+            "byteOffset" : 2144
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8544,
+            "byteOffset" : 10688
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5696,
+            "byteOffset" : 19232
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4680,
+            "byteOffset" : 24928
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 15336,
+            "byteOffset" : 29608
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 15336,
+            "byteOffset" : 44944
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 10224,
+            "byteOffset" : 60280
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9498,
+            "byteOffset" : 70504
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 80004,
+            "uri" : "MiG-15bis-Gearvalve.bin"
+        }
+    ]
+}

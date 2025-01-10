@@ -1,0 +1,898 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+MiG-15bis simulation config.
+
+2006-04-14 Lee Elliott
+
+2010 Victor Slavutinsky
+************************************************************************
+-->
+
+<PropertyList>
+
+  <one type="int">1</one>
+  <id type="int">0</id>
+
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <name type="string">Negative-g compartment</name>
+      </tank>
+      <tank n="1">
+        <name type="string">Tank No.1</name>
+      </tank>
+      <tank n="2">
+        <name type="string">Tank No.2</name>
+      </tank>
+      <tank n="3">
+        <name type="string">Left drop tank</name>
+      </tank>
+      <tank n="4">
+        <name type="string">Right drop tank</name>
+      </tank>
+    </fuel>
+  </consumables>
+
+  <sim include="Systems/views.xml">
+    <minimum-fg-version>2024.2.0</minimum-fg-version>
+    <aircraft-data>
+      <path>/sim/model</path>
+      <path>/sim/view</path>
+      <path>/sim/configuration</path>
+      <path>/fdm/jsbsim/tanks</path>
+      <path>/fdm/jsbsim/systems/instr/VD-17/pot/pressure-mmHg</path>
+      <path>/fdm/jsbsim/systems/instr/DGMK-3/pot/heading-bug-deg</path>
+      <path>/fdm/jsbsim/systems/instr/ARK-5/switch/band</path>
+      <path>/fdm/jsbsim/systems/instr/ARK-5/pot/tuning</path>
+      <path>/fdm/jsbsim/systems/instr/ARK-5/pot/volume</path>
+      <path>/fdm/jsbsim/systems/instr/ARK-5/pot/light</path>
+      <path>/fdm/jsbsim/systems/instr/ARK-5/switch/band-inner</path>
+    </aircraft-data>
+    <menubar include="gui/menubar.xml"/>
+    <help include="gui/help.xml"/>
+
+    <rating>
+      <FDM type="int">4</FDM>
+      <systems type="int">4</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">4</model>
+    </rating>
+    <allow-toggle-cockpit>true</allow-toggle-cockpit>
+    <aircraft-class type="string">fighter</aircraft-class>
+    <aircraft-operator>USSR</aircraft-operator>
+    <tags>
+      <tag>1940s</tag> <!-- first flight in 1947 -->
+      <tag>1950s</tag> <!-- Operational use in the korean war, 1951-1953 -->
+      <tag>coldwar</tag>
+      <tag>combat</tag>
+      <tag>fighter</tag> <!-- famously used against F-86 Sabre -->
+      <tag>interceptor</tag> <!-- the heavy cannons were designed to shoot B-29s down -->
+      <tag>jet</tag>
+      <tag>mikoyan-gurevich</tag>
+      <tag>retractable-gear</tag>
+      <tag>single-engine</tag>
+      <tag>tricycle</tag>
+      <tag>castering-wheel</tag>
+      <tag>low-wing</tag>
+      <tag>t-tail</tag>
+    </tags>
+
+    <dimensions>
+      <radius-m type="double">10.2</radius-m>
+      <parkpos-offset-m type="double">1.057</parkpos-offset-m>
+    </dimensions>
+    <airport>
+      <runways>
+        <start-offset-m>10.2</start-offset-m>
+      </runways>
+    </airport>
+
+    <authors>
+      <author n="0">
+        <name>Lee Elliott (original author)</name>
+      </author>
+      <author n="1">
+        <name>Victor Slavutinskiy (original author)</name>
+      </author>
+      <author n="2">
+        <name>Yurik V. Nikiforoff</name>
+      </author>
+      <author n="3">
+        <name>Ludovic Brenta</name>
+      </author>
+      <author n="4">
+        <name>Andreas Zenner</name>
+      </author>
+      <author n="5">
+        <name>Jüttner Domokos</name>
+        <nick>Rudolf</nick>
+      </author>
+      <author n="6">
+        <name>Michael Danilov</name>
+      </author>
+      <author n="7">
+        <name>Vermishel from Sketchfab (new external model)</name>
+      </author>
+      <author n="8">
+        <name>Daniel Overbeck (PBR cockpit textures)</name>
+      </author>
+    </authors>
+
+    <flight-model>jsb</flight-model>
+    <status>advanced production</status>
+    <aircraft-version>3.4.1</aircraft-version>
+    <aero>MiG-15bis</aero>
+    <fuel-fraction>1.0</fuel-fraction>
+    <description>MiG-15bis</description>
+    <long-description>
+      This first-generation jet fighter took the West by surprise when
+      it appeared over Korea.  Initially designed to shoot B-29 heavy
+      bombers with a single shell of its massive 37-mm cannon, the
+      MiG-15 also proved a capable dog-fighter, easily outclassing the
+      P-51 Mustang and even the first straight-winged jet fighters and
+      forcing the USAF to rush the F-86 Sabre into combat.  The MiG-15
+      was mass-produced in very large numbers. This aircraft supports
+      the Bombable add-on, so you can fight your friends over
+      multiplayer.
+    </long-description>
+    <localized>
+      <ru>
+        <description>МиГ-15бис</description>
+        <long-description>
+          Реактивный истребитель первого поколения, заставший Запад
+          врасплох своим появлением в небе Кореи. Изначально созданный
+          сбивать одним выстрелом из 37-мм пушки стратегические
+          бомбардировщики B-29, МиГ-15 отлично зарекомендовал себя и
+          в маневренном бою, с лёгкостью одолевая "Мустанги" P-51 и
+          даже первые реактивные истребители, заставив ВВС США
+          поторопиться с применением "Сейбров" F-86. МиГ-15 строился
+          в больших количествах и до сих пор является самым массовым
+          реактивным истребителем в мире.
+          Данный ЛА поддерживает модуль "Bombable".
+        </long-description>
+      </ru>
+    </localized>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+
+    <chase-distance-m type="double">20.0</chase-distance-m>
+
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/MiG-15bis/Sounds/MiG-15bis-sound.xml</path>
+    </sound>
+
+    <model>
+      <path>Aircraft/MiG-15bis/Models/MiG-15bis.xml</path>
+      <livery>
+        <name archive="y" type="string">USSR_211</name>
+      </livery>
+      <MiG-15bis-model>
+        <particles>
+          <enabled type="bool">true</enabled>
+        </particles>
+      </MiG-15bis-model>
+      <show_gunsight archive="y" type="bool">true</show_gunsight>
+      <show_Magcompass archive="y" type="bool">true</show_Magcompass>
+      <show_stick archive="y" type="bool">true</show_stick>
+    </model>
+
+    <configuration>
+      <use_std_atmosphere type="bool" archive="y">false</use_std_atmosphere>
+      <show_touchdown_speeds type="bool" archive="y">true</show_touchdown_speeds>
+      <rudder_input_exponent type="float" archive="y">2</rudder_input_exponent>
+      <throttle_crack type="bool" archive="y">false</throttle_crack>
+    </configuration>
+
+    <systems>
+      <electrical>
+        <path>Systems/dummy.xml</path>
+      </electrical>
+    </systems>
+
+    <flaps>
+      <setting>0.00</setting>
+      <setting>0.36</setting>
+      <setting>1.00</setting>
+    </flaps>
+
+    <aoa-indexer>
+      <too-slow-deg>6.5</too-slow-deg>  <!-- target +1.5 deg -->
+      <slow-deg>5.5</slow-deg>          <!-- target +0.5 deg -->         
+      <fast-deg>4.5</fast-deg>          <!-- target -0.5 deg -->         
+      <too-fast-deg>3.5</too-fast-deg>  <!-- target -1.5 deg -->         
+    </aoa-indexer>
+
+    <!-- replay configuration -->
+    <flight-recorder>
+      <replay-config type="int">0</replay-config>
+      <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
+	<name type="string">MiG-15bis - Flight Recorder</name>
+	<!-- Custom properties -->
+	<signal><property>/fdm/jsbsim/gear/unit[0]/pos-norm-real</property></signal>
+	<signal><property>/fdm/jsbsim/gear/unit[1]/pos-norm-real</property></signal>
+	<signal><property>/fdm/jsbsim/gear/unit[2]/pos-norm-real</property></signal>
+	<signal><property type="bool">/fdm/jsbsim/gear/unit[0]/torn</property></signal>
+	<signal><property type="bool">/fdm/jsbsim/gear/unit[1]/torn</property></signal>
+	<signal><property type="bool">/fdm/jsbsim/gear/unit[2]/torn</property></signal>
+	<signal><property>/fdm/jsbsim/fcs/flap-pos-norm</property></signal>
+	<signal><property type="bool">/fdm/jsbsim/fcs/flap-torn</property></signal>
+	<signal><property>/fdm/jsbsim/systems/canopy/pos</property></signal>
+	<signal><property type="bool">/fdm/jsbsim/systems/canopy/torn</property></signal>
+	<signal><property>/fdm/jsbsim/tanks/attached_0</property></signal>
+	<signal><property>/fdm/jsbsim/tanks/attached_1</property></signal>
+	<signal><property>/instrumentation/drop-tank/dropped_0</property></signal>
+	<signal><property>/instrumentation/drop-tank/dropped_1</property></signal>
+	<signal><property>/fdm/jsbsim/simulation/exploded</property></signal>
+	<signal><property>/fdm/jsbsim/simulation/crashed</property></signal>
+	<signal><property type="bool">/instrumentation/gear-indicator/left-down</property></signal>
+	<signal><property type="bool">/instrumentation/gear-indicator/left-up</property></signal>
+	<signal><property type="bool">/instrumentation/gear-indicator/middle-down</property></signal>
+	<signal><property type="bool">/instrumentation/gear-indicator/middle-up</property></signal>
+	<signal><property type="bool">/instrumentation/gear-indicator/right-down</property></signal>
+	<signal><property type="bool">/instrumentation/gear-indicator/right-up</property></signal>
+        <signal><property>/sim/multiplay/generic/float[%i]</property></signal>
+	<signal><property>/fdm/jsbsim/velocities/vc-kts</property></signal>
+	<signal><property>/fdm/jsbsim/velocities/vtrue-kts</property></signal>
+	<signal><property>/fdm/jsbsim/velocities/v-down-fps</property></signal>
+	<signal><property>velocities/mach</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/VD-17/gauge/altitude-m</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/AGI-1/gauge/pitch-deg</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/AGI-1/gauge/roll-deg</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/AGI-1/gauge/ball-deg</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/DGMK-3/gauge/heading-deg</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/BSUP-2/gauge/bearing-deg</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/TE-15/gauge/rpm</property></signal>
+	<signal><property>/fdm/jsbsim/systems/instr/UV-2/gauge/height-m</property></signal>
+      </config>
+    </flight-recorder>
+
+    <instrumentation>
+      <path>Systems/MiG-15bis-instrumentation.xml</path>
+      <heading-indicator n="0">
+        <name>heading-indicator</name>
+        <number>0</number>
+        <suction>systems/vacuum/suction-inhg</suction>
+        <heading-bug-deg type="double">95</heading-bug-deg>
+        <heading-source type="bool">true</heading-source>
+      </heading-indicator>
+      <heading-indicator-dg n="0">
+        <name>heading-indicator-dg</name>
+        <number>0</number>
+      </heading-indicator-dg>
+      <adf n="0">
+        <serviceable type="bool">true</serviceable>
+        <mode type="string">adf</mode>
+      </adf>
+      <drop-tank>
+        <one type="int">1</one>
+      </drop-tank>
+      <oxygen-pressure-meter>
+        <oxygen-on type="int">0</oxygen-on>
+      </oxygen-pressure-meter>
+    </instrumentation>
+
+
+
+    <multiplay>
+      <generic>
+        <int n="10" alias="/ai/submodels/N-37"/>
+        <int n="11" alias="/ai/submodels/NS-23-I"/>
+        <float n="0" alias="/fdm/jsbsim/gear/unit[0]/pos-norm-real"/>
+        <float n="1" alias="/fdm/jsbsim/gear/unit[0]/torn"/>
+
+        <float n="2" alias="/fdm/jsbsim/gear/unit[1]/pos-norm-real"/>
+        <float n="3" alias="/fdm/jsbsim/gear/unit[1]/torn"/>
+
+        <float n="4" alias="/fdm/jsbsim/gear/unit[2]/pos-norm-real"/>
+        <float n="5" alias="/fdm/jsbsim/gear/unit[2]/torn"/>
+
+        <float n="6" alias="/fdm/jsbsim/fcs/flap-pos-norm"/>
+        <float n="7" alias="/fdm/jsbsim/fcs/flap-torn"/>
+
+        <float n="8" alias="/fdm/jsbsim/systems/canopy/pos"/>
+        <float n="9" alias="/fdm/jsbsim/systems/canopy/torn"/>
+
+        <float n="10" alias="/fdm/jsbsim/simulation/exploded"/>
+        <float n="11" alias="/velocities/airspeed-kt"/>
+
+        <float n="12" alias="/instrumentation/drop-tank/dropped_0"/>
+        <float n="13" alias="/instrumentation/drop-tank/dropped_1"/>
+        <float n="14" alias="/instrumentation/drop-tank/one"/>
+
+        <float n="15" alias="/fdm/jsbsim/propulsion/engine/n1"/>
+
+        <float n="16" alias="/instrumentation/oxygen-pressure-meter/oxygen-on"/>
+
+      </generic>
+    </multiplay>
+
+  </sim>
+
+  <!-- Key mappings -->
+  <input>
+    <keyboard include="Systems/keyboard.xml"/>
+  </input>
+  
+  <ai>
+    <submodels>
+      <trajectory-markers type="bool">0</trajectory-markers>
+    </submodels>
+  </ai>
+
+  <!-- Set the mini panel monitor instruments to minimised -->
+  <instrumentation>
+    <apmonitor>
+      <minimised type="bool">true</minimised>
+    </apmonitor>
+    <engmonitor>
+      <minimised type="bool">true</minimised>
+    </engmonitor>
+    <gas-control>
+      <brakes-button>
+        <switch-pos-norm type="double">0</switch-pos-norm>
+        <target-pos-norm type="double">0</target-pos-norm>
+      </brakes-button>
+    </gas-control>
+    <gear-indicator>
+      <button-check>
+        <switch-pos-norm type="double">0</switch-pos-norm>
+        <target-pos-norm type="double">0</target-pos-norm>
+      </button-check>
+      <brightness-cmd-norm type="double">1.0</brightness-cmd-norm>
+      <brightness-pos-norm type="double">1.0</brightness-pos-norm>
+    </gear-indicator>
+    <velmonitor>
+      <minimised type="bool">true</minimised>
+    </velmonitor>
+    <posmonitor>
+      <minimised type="bool">true</minimised>
+    </posmonitor>
+    <adf n="0">
+     <frequencies>
+       <selected-khz alias="/fdm/jsbsim/systems/instr/ARK-5/backend/selected-khz"/>
+     </frequencies>
+     <ident-audible type="bool">true</ident-audible>
+     <volume-norm alias="/fdm/jsbsim/systems/instr/ARK-5/backend/volume-norm"/>
+    </adf>
+    <marker-beacon n="0">
+     <audio-btn type="bool">false</audio-btn>
+    </marker-beacon>
+  </instrumentation>
+
+  <!-- Pre-set/initialise some of the controls -->
+  <controls>
+
+    <!-- Start with gear down -->
+    <gear>
+      <gear-down type="bool">1.0</gear-down>
+    </gear>
+
+    <!-- Initialise the canopy -->
+    <canopy>
+      <canopy-pos-norm type="float">1.0</canopy-pos-norm>
+    </canopy>
+
+    <!-- Initialise cannon button -->
+    <armament>
+      <trigger type="bool">0</trigger>
+    </armament>
+
+  </controls>
+
+  <!-- FDM initialization -->
+
+  <fdm>
+    <jsbsim>
+      <override-fg-brake-properties type="bool">true</override-fg-brake-properties>
+      <aero>
+        <h-b_mac alias="/fdm/jsbsim/aero/h_b-mac-ft"></h-b_mac>
+      </aero>
+      <attitude>
+        <psi-mag-deg alias="/orientation/heading-magnetic-deg"/>
+      </attitude>
+      <calculations>
+        <vspeed_gear_one type="float">0</vspeed_gear_one>
+        <vspeed_gear_two type="float">0</vspeed_gear_two>
+        <vspeed_gear_three type="float">0</vspeed_gear_three>
+        <init_volume type="double">0</init_volume>
+      </calculations>
+      <init>
+        <finally-initialized type="int">0</finally-initialized>
+      </init>
+      <fcs>
+        <aileron-cmd-norm-real type="float">0</aileron-cmd-norm-real>
+        <elevator-cmd-norm-real type="float">0</elevator-cmd-norm-real>
+        <aileron-boost type="float">1.0</aileron-boost>
+        <roll-trim-sum type="float">0.0</roll-trim-sum>
+        <roll-trim-sum-timed type="float">0.0</roll-trim-sum-timed>
+      </fcs>
+      <fuel>
+          <drop_tanks_light_switch type="bool">false</drop_tanks_light_switch>
+          <random_0_treshold>0.7</random_0_treshold>
+          <random_1_treshold>2.0</random_1_treshold>
+      </fuel>
+      <gear>
+        <gear-cmd-norm type="int">1</gear-cmd-norm>
+        <gear-cmd-norm-real type="int">1</gear-cmd-norm-real>
+        <gear-pos-norm type="float">1</gear-pos-norm>
+        <wheel-chocks type="bool">true</wheel-chocks>
+        <unit n="0">
+          <pos-norm type="float">1</pos-norm>
+          <stuck type="bool">0</stuck>
+        </unit>
+        <unit n="1">
+          <pos-norm type="float">1</pos-norm>
+          <stuck type="bool">0</stuck>
+        </unit>
+        <unit n="2">
+          <pos-norm type="float">1</pos-norm>
+          <stuck type="bool">0</stuck>
+        </unit>
+      </gear>
+      <systems>
+        <propulsion>
+          <engine>
+            <rpm type="float">0</rpm>
+          </engine>
+        </propulsion>
+        <sounds>
+          <canopy-lock-click>
+            <on type="float">0</on>
+          </canopy-lock-click>
+          <click>
+            <on type="bool">0</on>
+            <time-pos type="float">0</time-pos>
+          </click>
+        </sounds>
+        <headsight>
+          <on type="bool">0</on>
+          <serviceable type="bool">1</serviceable>
+          <up-command type="bool">1</up-command>
+          <up-pos type="float">1</up-pos>
+          <gyro-command type="bool">1</gyro-command>
+          <gyro-pos type="float">1</gyro-pos>
+          <frame-command type="bool">0</frame-command>
+          <frame-pos type="float">0</frame-pos>
+          <brightness type="float">1</brightness>
+          <target-size type="float">15</target-size>
+          <target-distance type="float">400</target-distance>
+          <from-eye-to-sight type="float">0.4</from-eye-to-sight>
+          <lamp type="float">0</lamp>
+          <sign type="bool">0</sign>
+          <ring-lamp type="float">0</ring-lamp>
+          <cross-lamp type="float">0</cross-lamp>
+          <pitch-shift type="float">0</pitch-shift>
+          <yaw-shift type="float">0</yaw-shift>
+          <sight-scale-factor type="float">1</sight-scale-factor>
+          <sight-source-size type="float">0.02</sight-source-size>
+          <bullet-speed type="float">680</bullet-speed>
+          <pitch-shift-edge type="float">0.027</pitch-shift-edge>
+          <yaw-shift-edge type="float">0.035</yaw-shift-edge>
+          <sight-dot-size type="float">0.001</sight-dot-size>
+        </headsight>
+        <gascontrol>
+          <serviceable type="bool">1</serviceable>
+          <lock-command type="float">1</lock-command>
+          <lock-pos type="float">1</lock-pos>
+          <fix-command type="float">0</fix-command>
+          <fix-pos type="float">0</fix-pos>
+          <lever-command type="float">0</lever-command>
+          <lever-pos type="float">0</lever-pos>
+          <pilot-oscillator-pos>0</pilot-oscillator-pos>
+          <shift-oscillator-command>0</shift-oscillator-command>
+          <shift-oscillator-pos>0</shift-oscillator-pos>
+        </gascontrol>
+        <flapscontrol>
+          <serviceable type="bool">1</serviceable>
+          <lever-command type="float">0</lever-command>
+          <lever-pos type="float">0</lever-pos>
+          <fix-pos type="float">0</fix-pos>
+        </flapscontrol>
+        <accchecker>
+          <max-n-x type="float">0</max-n-x>
+          <max-n-y type="float">0</max-n-y>
+          <max-n-z type="float">0</max-n-z>
+          <max-n-p type="float">0</max-n-p>
+          <max-n-q type="float">0</max-n-q>
+          <max-n-r type="float">0</max-n-r>
+        </accchecker>
+        <canopy>
+          <serviceable type="bool">1</serviceable>
+          <command type="float">1</command>
+          <pos type="float">1</pos>
+          <lock-pos type="float">0</lock-pos>
+          <torn type="bool">0</torn>
+        </canopy>
+        <rightpanel>
+          <serviceable type="bool">1</serviceable>
+
+          <battery-input type="bool">0</battery-input>
+          <battery-command type="bool">0</battery-command>
+          <battery-pos type="float">0</battery-pos>
+          <battery-switch type="bool">0</battery-switch>
+
+          <generator-input type="bool">0</generator-input>
+          <generator-command type="bool">0</generator-command>
+          <generator-pos type="float">0</generator-pos>
+          <generator-switch type="bool">0</generator-switch>
+
+          <headlight-input type="bool">0</headlight-input>
+          <headlight-command type="bool">0</headlight-command>
+          <headlight-pos type="float">0</headlight-pos>
+          <headlight-switch type="bool">0</headlight-switch>
+
+          <trimmer-input type="bool">0</trimmer-input>
+          <trimmer-command type="bool">0</trimmer-command>
+          <trimmer-pos type="float">0</trimmer-pos>
+          <trimmer-switch type="bool">0</trimmer-switch>
+
+          <horizon-input type="bool">0</horizon-input>
+          <horizon-command type="bool">0</horizon-command>
+          <horizon-pos type="float">0</horizon-pos>
+          <horizon-switch type="bool">0</horizon-switch>
+
+          <radio-input type="bool">0</radio-input>
+          <radio-command type="bool">0</radio-command>
+          <radio-pos type="float">0</radio-pos>
+          <radio-switch type="bool">0</radio-switch>
+
+          <radioaltimeter-input type="bool">0</radioaltimeter-input>
+          <radioaltimeter-command type="bool">0</radioaltimeter-command>
+          <radioaltimeter-pos type="float">0</radioaltimeter-pos>
+          <radioaltimeter-switch type="bool">0</radioaltimeter-switch>
+
+          <drop-tank-input type="bool">0</drop-tank-input>
+          <drop-tank-command type="bool">0</drop-tank-command>
+          <drop-tank-pos type="float">0</drop-tank-pos>
+          <drop-tank-switch type="bool">0</drop-tank-switch>
+
+          <bomb-input type="bool">0</bomb-input>
+          <bomb-command type="bool">0</bomb-command>
+          <bomb-pos type="float">0</bomb-pos>
+          <bomb-switch type="bool">0</bomb-switch>
+
+          <photo-input type="bool">0</photo-input>
+          <photo-command type="bool">0</photo-command>
+          <photo-pos type="float">0</photo-pos>
+          <photo-switch type="bool">0</photo-switch>
+
+          <photo-machinegun-input type="bool">0</photo-machinegun-input>
+          <photo-machinegun-command type="bool">0</photo-machinegun-command>
+          <photo-machinegun-pos type="float">0</photo-machinegun-pos>
+          <photo-machinegun-switch type="bool">0</photo-machinegun-switch>
+
+          <machinegun-input type="bool">0</machinegun-input>
+          <machinegun-command type="bool">0</machinegun-command>
+          <machinegun-pos type="float">0</machinegun-pos>
+          <machinegun-switch type="bool">0</machinegun-switch>
+
+          <headsight-input type="bool">0</headsight-input>
+          <headsight-command type="bool">0</headsight-command>
+          <headsight-pos type="float">0</headsight-pos>
+          <headsight-switch type="bool">0</headsight-switch>
+        </rightpanel>
+        <stopcontrol>
+          <serviceable type="bool">1</serviceable>
+          <lever-input type="bool">1</lever-input>
+          <lever-command type="bool">1</lever-command>
+          <lever-pos type="float">1</lever-pos>
+          <lever-switch type="bool">1</lever-switch>
+        </stopcontrol>
+        <leftpanel>
+          <serviceable type="bool">1</serviceable>
+
+          <pump-input type="bool">0</pump-input>
+          <pump-command type="bool">0</pump-command>
+          <pump-pos type="float">0</pump-pos>
+          <pump-switch type="bool">0</pump-switch>
+
+          <isolation-valve-input type="bool">0</isolation-valve-input>
+          <isolation-valve-command type="bool">0</isolation-valve-command>
+          <isolation-valve-pos type="float">0</isolation-valve-pos>
+          <isolation-valve-switch type="bool">0</isolation-valve-switch>
+
+          <ignition-type-input type="bool">0</ignition-type-input>
+          <ignition-type-command type="bool">0</ignition-type-command>
+          <ignition-type-pos type="float">0</ignition-type-pos>
+          <ignition-type-switch type="bool">0</ignition-type-switch>
+
+          <ignition-input type="bool">0</ignition-input>
+          <ignition-command type="bool">0</ignition-command>
+          <ignition-pos type="float">0</ignition-pos>
+          <ignition-switch type="bool">0</ignition-switch>
+
+          <engine-control-input type="bool">0</engine-control-input>
+          <engine-control-command type="bool">0</engine-control-command>
+          <engine-control-pos type="float">0</engine-control-pos>
+          <engine-control-switch type="bool">0</engine-control-switch>
+
+          <third-tank-pump-input type="bool">0</third-tank-pump-input>
+          <third-tank-pump-command type="bool">0</third-tank-pump-command>
+          <third-tank-pump-pos type="float">0</third-tank-pump-pos>
+          <third-tank-pump-switch type="bool">0</third-tank-pump-switch>
+        </leftpanel>
+        <ignitionbutton>
+          <serviceable type="bool">1</serviceable>
+
+          <button-input type="bool">0</button-input>
+          <button-command type="bool">0</button-command>
+
+          <button-pos type="float">0</button-pos>
+          <button-switch type="bool">0</button-switch>
+
+          <safer-command type="bool">0</safer-command>
+          <safer-pos type="float">0</safer-pos>
+          <safer-switch type="bool">0</safer-switch>
+
+        </ignitionbutton>
+        <speedbrakescontrol>
+          <serviceable type="bool">1</serviceable>
+          <control-input type="bool">0</control-input>
+          <control-command type="bool">0</control-command>
+          <control-pos type="float">0</control-pos>
+          <control-switch type="bool">0</control-switch>
+          <light-pos type="float">0</light-pos>
+        </speedbrakescontrol>
+        <fuelcontrol>
+          <serviceable type="bool">1</serviceable>
+          <control-input type="bool">0</control-input>
+          <control-command type="bool">0</control-command>
+          <control-pos type="float">0</control-pos>
+          <control-switch type="bool">0</control-switch>
+        </fuelcontrol>
+        <gearcontrol>
+          <serviceable type="bool">1</serviceable>
+
+          <control-input type="bool">1</control-input>
+          <control-command type="bool">1</control-command>
+
+          <safer-command type="bool">0</safer-command>
+          <safer-pos type="float">0</safer-pos>
+          <safer-switch type="bool">0</safer-switch>
+
+          <lever-unsafed type="int">0</lever-unsafed>
+          <lever-pos type="float">0</lever-pos>
+          <control-switch type="bool">1</control-switch>
+
+          <gear-one-end-move type="bool">0</gear-one-end-move>
+          <gear-two-end-move type="bool">0</gear-two-end-move>
+          <gear-three-end-move type="bool">0</gear-three-end-move>
+
+          <gear-end-move type="bool">0</gear-end-move>
+        </gearcontrol>
+        <stick>
+          <serviceable type="bool">1</serviceable>
+          <drop-button-input type="bool">0</drop-button-input>
+          <drop-button-command type="bool">0</drop-button-command>
+          <drop-button-command-resulted type="bool">0</drop-button-command-resulted>
+          <drop-button-command-internal type="bool">0</drop-button-command-internal>
+          <drop-button-pos type="float">0</drop-button-pos>
+          <drop-button-switch type="bool">0</drop-button-switch>
+          <safer-command type="bool">1</safer-command>
+          <safer-pos type="float">1</safer-pos>
+          <safer-input type="bool">1</safer-input>
+          <safer-switch type="bool">1</safer-switch>
+          <fire-button-input type="bool">0</fire-button-input>
+          <fire-button-command type="bool">0</fire-button-command>
+          <fire-button-command-resulted type="bool">0</fire-button-command-resulted>
+          <fire-button-command-internal type="bool">0</fire-button-command-internal>
+          <fire-button-pos type="float">0</fire-button-pos>
+          <fire-button-switch type="bool">0</fire-button-switch>
+          <elevator-stick-deg type="float">0</elevator-stick-deg>
+          <aileron-stick-deg type="float">0</aileron-stick-deg>
+          <elevator-rod-shift-x type="float">0</elevator-rod-shift-x>
+          <elevator-rod-shift-y type="float">0</elevator-rod-shift-y>
+          <elevator-rod-shift-z type="float">0</elevator-rod-shift-z>
+          <aileron-first-rod-rod-shift-y type="float">0</aileron-first-rod-rod-shift-y>
+          <aileron-rocker-source-angle type="float">0</aileron-rocker-source-angle>
+          <aileron-rocker-next-angle type="float">0</aileron-rocker-next-angle>
+          <aileron-rocker-shift-angle type="float">0</aileron-rocker-shift-angle>
+          <aileron-second-rod-source-angle type="float">0</aileron-second-rod-source-angle>
+          <aileron-second-rod-next-angle type="float">0</aileron-second-rod-next-angle>
+          <aileron-second-rod-shift-x type="float">0</aileron-second-rod-shift-x>
+
+          <brake-middle-angle type="float">0</brake-middle-angle>
+          <park-brake-angle type="float">0</park-brake-angle>
+          <brake-angle type="float">0</brake-angle>
+          <brake-middle-x type="float">0</brake-middle-x>
+          <brake-middle-y type="float">0</brake-middle-y>
+          <brake-z type="float">0.337</brake-z>
+          <brake-saxle-middle-x type="float">0</brake-saxle-middle-x>
+          <brake-saxle-middle-y type="float">0</brake-saxle-middle-y>
+          <brake-saxle-z type="float">0.345</brake-saxle-z>
+          <brake-blocker-middle-x type="float">0</brake-blocker-middle-x>
+          <brake-blocker-middle-y type="float">0</brake-blocker-middle-y>
+          <brake-blocker-z type="float">0.216</brake-blocker-z>
+          <brake-rod-middle-x type="float">0</brake-rod-middle-x>
+          <brake-rod-middle-y type="float">0</brake-rod-middle-y>
+          <brake-rod-z type="float">0.338</brake-rod-z>
+          <brake-saxle-shoulder-xy type="float">0</brake-saxle-shoulder-xy>
+          <brake-saxle-shoulder-z type="float">0</brake-saxle-shoulder-z>
+          <brake-saxle-source-angle type="float">0</brake-saxle-source-angle>
+          <brake-saxle-source-angle-deg type="float">0</brake-saxle-source-angle-deg>
+          <brake-saxle-angle type="float">0</brake-saxle-angle>
+          <brake-saxle-angle-deg type="float">0</brake-saxle-angle-deg>
+          <brake-saxle-shoulder type="float">0</brake-saxle-shoulder>
+          <brake-saxle-pos-xy type="float">0</brake-saxle-pos-xy>
+          <brake-saxle-pos-z type="float">0</brake-saxle-pos-z>
+          <brake-blocker-source-xy type="float">0</brake-blocker-source-xy>
+          <brake-blocker-shoulder-xy type="float">0</brake-blocker-shoulder-xy>
+          <brake-blocker-shoulder-z type="float">0</brake-blocker-shoulder-z>
+          <brake-blocker-angle type="float">0</brake-blocker-angle>
+          <brake-blocker-angle-deg type="float">0</brake-blocker-angle-deg>
+          <brake-rod-shoulder-xy type="float">0</brake-rod-shoulder-xy>
+          <brake-rod-shoulder-z type="float">0</brake-rod-shoulder-z>
+          <brake-rod-source-angle type="float">0</brake-rod-source-angle>
+          <brake-rod-angle type="float">0</brake-rod-angle>
+          <brake-rod-angle-deg type="float">0</brake-rod-angle-deg>
+          <brake-rod-account-z type="float">0</brake-rod-account-z>
+          <brake-rod-shift-z type="float">0</brake-rod-shift-z>
+        </stick>
+        <pedals>
+          <serviceable type="bool">1</serviceable>
+          <shift-x type="float">0</shift-x>
+          <tubes-source-angle type="float">0</tubes-source-angle>
+          <tubes-angle type="float">0</tubes-angle>
+          <tubes-shift-angle type="float">0</tubes-shift-angle>
+          <tubes-shift-rod-x type="float">0</tubes-shift-rod-x>
+        </pedals>
+        <gearvalve>
+          <serviceable type="bool">1</serviceable>
+          <left-handle-input type="bool">0</left-handle-input>
+          <left-handle-command type="bool">0</left-handle-command>
+          <left-handle-pos type="float">0</left-handle-pos>
+          <left-handle-switch type="bool">0</left-handle-switch>
+          <right-handle-input type="bool">0</right-handle-input>
+          <right-handle-command type="bool">0</right-handle-command>
+          <right-handle-pos type="float">0</right-handle-pos>
+          <right-handle-switch type="bool">0</right-handle-switch>
+          <safer-input type="bool">0</safer-input>
+          <safer-command type="bool">0</safer-command>
+          <safer-pos type="float">0</safer-pos>
+          <safer-switch type="bool">0</safer-switch>
+          <valve-input type="bool">0</valve-input>
+          <valve-command type="bool">0</valve-command>
+          <valve-pos type="float">0</valve-pos>
+          <valve-switch type="bool">0</valve-switch>
+          <valve-pressure-switch type="bool">0</valve-pressure-switch>
+          <pressure-pos type="float">1</pressure-pos>
+          <pressure-indicated type="float">1</pressure-indicated>
+        </gearvalve>
+        <flapsvalve>
+          <serviceable type="bool">1</serviceable>
+          <safer-input type="bool">0</safer-input>
+          <safer-command type="bool">0</safer-command>
+          <safer-pos type="float">0</safer-pos>
+          <safer-switch type="bool">0</safer-switch>
+          <valve-input type="bool">0</valve-input>
+          <valve-command type="bool">0</valve-command>
+          <valve-pos type="float">0</valve-pos>
+          <valve-switch type="bool">0</valve-switch>
+          <valve-pressure-switch type="bool">0</valve-pressure-switch>
+          <pressure-pos type="float">1</pressure-pos>
+          <pressure-indicated type="float">1</pressure-indicated>
+        </flapsvalve>
+        <pump>
+          <on type="bool">0</on>
+        </pump>
+        <bus>
+          <on type="bool">0</on>
+        </bus>
+        <boostercontrol>
+          <serviceable type="bool">1</serviceable>
+          <control-input type="float">0.5</control-input>
+          <control-command type="float">0.5</control-command>
+          <control-pos type="float">0.5</control-pos>
+          <fix-pos type="float">0</fix-pos>
+          <pressure-pos type="float">0</pressure-pos>
+          <pressure-stored type="float">0</pressure-stored>
+          <pressure-indicated type="float">0</pressure-indicated>
+          <click-command type="bool">0</click-command>
+        </boostercontrol>
+        <instr>
+          <ARK-5>
+            <backend>
+              <in-range alias="/instrumentation/adf[0]/in-range"/>
+              <indicated-bearing-deg alias="/instrumentation/adf[0]/indicated-bearing-deg"/>
+            </backend>
+          </ARK-5>
+          <MRP-48P>
+            <backend>
+              <inner alias="/instrumentation/marker-beacon/inner"/>
+              <middle alias="/instrumentation/marker-beacon/middle"/>
+              <outer alias="/instrumentation/marker-beacon/outer"/>
+            </backend>
+          </MRP-48P>
+        </instr>
+      </systems>
+
+      <tanks>
+        <attached archive="n" type="float">1</attached> 
+        <attached_0 archive="y" type="bool">1</attached_0>
+        <attached_1 archive="y" type="bool">1</attached_1>
+      </tanks>
+
+      <tweak_factors>
+        <ground_effect_lift type="float">1</ground_effect_lift>
+        <ground_effect_drag type="float">1</ground_effect_drag>
+        <drag_due_to_sideslip type="float">1</drag_due_to_sideslip>
+        <drag_offset type="float">0.003</drag_offset>
+        <pitch_moment_due_to_pitch_rate type="float">1.0</pitch_moment_due_to_pitch_rate>
+        <roll_moment_due_to_yaw_rate type="float">1.05</roll_moment_due_to_yaw_rate>
+        <roll_moment_due_to_beta_A type="float">0.124</roll_moment_due_to_beta_A>
+        <roll_moment_due_to_beta_B type="float">0.350</roll_moment_due_to_beta_B>
+        <roll_moment_due_to_beta_K type="float">-0.028</roll_moment_due_to_beta_K>
+        <yaw_moment_due_to_beta_and_flaps type="float">1</yaw_moment_due_to_beta_and_flaps>
+        <yaw_moment_due_to_yaw_rate type="float">1.2</yaw_moment_due_to_yaw_rate>
+        <yaw_moment_due_to_roll_rate type="float">1.05</yaw_moment_due_to_roll_rate>
+        <adverse_yaw type="float">1</adverse_yaw>
+        <engine_rotational_inertia type="float">7.63</engine_rotational_inertia>
+        <elevator_range_at_high_speed_A type="float">1000</elevator_range_at_high_speed_A>
+        <elevator_range_at_high_speed_B type="float">0.3</elevator_range_at_high_speed_B>
+        <rudder_range_at_high_speed_A type="float">1000</rudder_range_at_high_speed_A>
+        <rudder_range_at_high_speed_B type="float">0.3</rudder_range_at_high_speed_B>
+        <vol_highpitch type="float">1</vol_highpitch>
+        <vol_jet type="float">0.5</vol_jet>
+        <vol_engine1 type="float">1</vol_engine1>
+        <vol_engine_total type="float">2</vol_engine_total>
+        <vol_gear type="float">0.7</vol_gear>
+        <vol_wind type="float">1.0</vol_wind>
+        <gear_main_maxload type="float">2.4</gear_main_maxload>
+        <gear_one_maxload type="float">1.3</gear_one_maxload>
+        <gear_one_maxload_single type="float">0.8</gear_one_maxload_single>
+      </tweak_factors>
+
+    </jsbsim>
+  </fdm>
+
+  <gear>
+    <gear n="0">
+      <position-norm type="float">1</position-norm>
+    </gear>
+    <gear n="1">
+      <position-norm type="float">1</position-norm>
+    </gear>
+    <gear n="2">
+      <position-norm type="float">1</position-norm>
+    </gear>
+  </gear>
+
+  <!-- Engine rpm needed to make vacuum system happy
+       without it vacuum system does not work and gyro stops spin -->
+
+  <!-- Engine indexes -->
+  <engines>
+    <engine n="0">
+      <rpm type="float">0</rpm>
+      <out-of-fuel type="bool">0</out-of-fuel>
+    </engine>
+  </engines>
+
+  <!-- Nasal initialisation -->
+
+  <nasal>
+    <MIG15BIS>
+      <file>Aircraft/MiG-15bis/Nasal/MiG-15bis.nas</file>
+      <script>start_up();</script>
+    </MIG15BIS>
+    <MiG_15bis_bombable>
+      <file>Aircraft/MiG-15bis/Nasal/bombable.nas</file>
+    </MiG_15bis_bombable>
+    <light-manager>
+      <file>Aircraft/MiG-15bis/Nasal/light-manager.nas</file>
+    </light-manager>
+  </nasal>
+
+  <orientation>
+    <p-body type="double">0</p-body>
+    <q-body type="double">0</q-body>
+    <r-body type="double">0</r-body>
+  </orientation>
+
+  <velocities>
+    <groundspeed-kt type="double">0</groundspeed-kt>
+  </velocities>
+
+</PropertyList>
+

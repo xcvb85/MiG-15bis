@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME "MRP-48P">
+ <!ENTITY U    "systems/instr/&NAME;">
+]>
+
+<system name="MRP-48P marker receiver">
+ <!-- Маркерный радиоприёмник МРП-48П -->
+
+
+ <property>systems/elec/output/&NAME;/DC27-V</property>
+ <property>systems/elec/output/&NAME;/DC27-ok</property>
+
+
+ <channel name="MRP-48P slow" execrate="8">
+
+  <!-- High voltage is taken from ARK-5. -->
+
+  <fcs_function name="systems/elec/output/&NAME;/DC27-A">
+   <function>
+    <product>
+     <p>systems/elec/output/&NAME;/DC27-V</p>
+     <!-- Assumed: 1 A @ 27.5 V -->
+     <v>0.0363</v>
+    </product>
+   </function>
+  </fcs_function>
+
+ </channel>
+
+
+ <channel name="MRP-48P" execrate="2">
+
+  <fcs_function name="&U;/marker">
+   <output>&U;/light/marker</output>
+   <output>&U;/sound/bell</output>
+   <function>
+    <product>
+     <or>
+      <p>&U;/backend/inner</p>
+      <p>&U;/backend/middle</p>
+      <p>&U;/backend/outer</p>
+     </or>
+     <p>systems/elec/output/&NAME;/DC27-ok</p>
+     <p>systems/instr/ARK-5/on</p>
+    </product>
+   </function>
+   <clipto>
+    <min>0</min>
+    <max>1</max>
+   </clipto>
+  </fcs_function>
+
+ </channel>
+
+
+</system>

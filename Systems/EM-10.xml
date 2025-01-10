@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME "EM-10">
+ <!ENTITY U    "systems/instr/&NAME;">
+]>
+
+<system name="EM-10 electrical manometer">
+ <!-- Электрический дистанционный манометр ЭМ-10 -->
+
+
+ <!-- TODO Placeholder input. Take out when engine is de-nasalized. -->
+ <channel name="placeholder" execrate="2">
+  <pure_gain name="&U;/placeholder/fuel-pressure-kgf_cm2">
+   <input>/engines/engine/fuel-flow_pph</input>
+   <!-- XXX The original was "100 / 500 = 0.02" but it showed nothing. -->
+   <gain>100.0</gain>
+  </pure_gain>
+ </channel>
+
+
+ <property>systems/elec/output/&NAME;/DC27-V</property>
+ <property>systems/elec/output/&NAME;/DC27-ok</property>
+
+
+ <channel name="EM-10 slow" execrate="8">
+
+  <fcs_function name="systems/elec/output/&NAME;/DC27-A">
+   <function>
+    <product>
+     <p>systems/elec/output/&NAME;/DC27-V</p>
+     <!-- = 0.3 A @ 27 V -->
+     <v>0.0111</v>
+    </product>
+   </function>
+  </fcs_function>
+
+ </channel>
+
+
+ <channel name="EM-10" execrate="2">
+
+  <!-- TODO Check the "off" values when face is redrawn.-->
+
+  <switch name="&U;/gauge/fuel-pressure-kgf_cm2">
+   <default value="-8.8"/>
+   <test value="&U;/placeholder/fuel-pressure-kgf_cm2">
+    systems/elec/output/&NAME;/DC27-ok NE 0
+   </test>
+  </switch>
+
+ </channel>
+
+
+</system>

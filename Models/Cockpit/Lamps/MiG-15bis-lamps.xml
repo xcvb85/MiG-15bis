@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-Fuellamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.100</y-m>
+      <z-m>0.500</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-Flapslamp.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>-0.264</y-m>
+      <z-m>0.570</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-Gearlamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.126</y-m>
+      <z-m>0.590</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-Marklamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>0.461</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-Generatorlamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.004</y-m>
+      <z-m>0.442</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Lamps/MiG-15bis-Ignitionlamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.150</y-m>
+      <z-m>0.607</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+</PropertyList> 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY U "systems/instr/EUP-46">
+]>
+
+<system name="EUP-46 electrical turn indicator">
+ <!-- Электрический указатель поворота ЭУП-46 -->
+
+
+ <property>systems/elec/output/EUP-46/DC27-V</property>
+ <property>systems/elec/output/EUP-46/DC27-ok</property>
+
+
+ <channel name="EUP-46 slow" execrate="8">
+
+  <fcs_function name="systems/elec/output/EUP-46/DC27-A">
+   <function>
+    <product>
+     <p>systems/elec/output/EUP-46/DC27-V</p>
+     <!-- = 0.13 A @ 27 V -->
+     <v>0.00481</v>
+    </product>
+   </function>
+  </fcs_function>
+
+ </channel>
+
+
+ <channel name="EUP-46" execrate="2">
+
+  <fcs_function name="&U;/gauge/yaw-rate-needledeg">
+   <function>
+    <product>
+     <p>systems/elec/output/EUP-46/DC27-ok</p>
+     <table>
+      <independentVar lookup="row">velocities/r-rad_sec</independentVar>
+      <tableData>
+       -0.3142  -30.0
+       -0.1047  -20.0
+       -0.0105   -2.0
+        0.0105    2.0
+        0.1047   20.0
+        0.3142   30.0
+      </tableData>
+     </table>
+    </product>
+   </function>
+  </fcs_function>
+
+  <!-- Animation is using AGI-1 ball, the same.
+  <lag_filter name="&U;/gauge/ball-deg">
+   <input>-accelerations/pendulum-roll-deg</input>
+   <c1>20.0</c1>
+   <clipto>
+    <min>-8.0</min>
+    <max>8.0</max>
+   </clipto>
+  </lag_filter>
+  -->
+
+ </channel>
+
+
+</system>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Controls/MiG-15bis-Stick.xml</path>
+    <offsets>
+      <x-m>1.709</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.055</z-m>
+      <pitch-deg>10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Controls/MiG-15bis-Throttle.xml</path>
+    <offsets>
+      <x-m>1.869</x-m>
+      <y-m>-0.365</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Controls/MiG-15bis-Pedals.xml</path>
+    <offsets>
+      <x-m>1.300</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.002</z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Controls/MiG-15bis-Gearcontrol.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>-0.276</y-m>
+      <z-m>0.415</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15bis/Models/Cockpit/Controls/MiG-15bis-Gearhandles.xml</path>
+  </model>
+</PropertyList> 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY U "systems/instr/TE-15">
+]>
+
+<system name="TE-15 electrical remote tachometer">
+ <!-- Электрический дистанционный тахометр ТЭ-15 -->
+
+ <!-- TODO This is a placeholder until engine is de-nasalized. The gauge needs no power. -->
+
+
+ <property>&U;/rpm</property>
+
+
+ <channel name="DGMK-3" execrate="2">
+
+  <switch name="&U;/gauge/rpm">
+   <default value="&U;/rpm"/>
+   <clipto>
+    <min>0.0</min>
+    <max>15000.0</max>
+   </clipto>
+  </switch>
+
+ </channel>
+
+
+</system>

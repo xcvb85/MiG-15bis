@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+      <default>
+        <menu n="50">
+          <label>MiG-15bis</label>
+          <item n="0">
+            <label>Autostart aircraft</label>
+            <binding>
+              <command>nasal</command>
+              <script>MIG15BIS.aircraft_autostart();</script>
+            </binding>
+          </item>
+          <item n="1">
+            <label>Refuel aircraft</label>
+            <binding>
+              <command>nasal</command>
+              <script>MIG15BIS.aircraft_refuel();</script>
+            </binding>
+          </item>
+          <item n="2">
+            <label>Repair aircraft</label>
+            <binding>
+              <command>nasal</command>
+              <script>MIG15BIS.aircraft_repair();</script>
+            </binding>
+          </item>
+          <item n="3">
+            <label>Full restart</label>
+            <binding>
+              <command>nasal</command>
+              <script>MIG15BIS.aircraft_restart();</script>
+            </binding>
+          </item>
+          <item n="4">
+            <label>Properties dump</label>
+            <binding>
+              <command>nasal</command>
+              <script>MIG15BIS.dump_properties();</script>
+            </binding>
+          </item>
+          <item n="5">
+            <label>Select livery</label>
+            <binding>
+              <command>nasal</command>
+              <script>aircraft.livery.dialog.toggle();</script>
+            </binding>
+          </item>
+          <item n="6">
+            <label>Configuration</label>
+            <binding>
+              <command>dialog-show</command>
+              <dialog-name>configuration_dialog</dialog-name>
+            </binding>
+          </item>
+          <item n="7">
+            <label>Toggle chocks</label>
+            <binding>
+              <command>nasal</command>
+              <script>
+                if (
+                  getprop("gear/gear[0]/wow") and
+                  getprop("gear/gear[1]/wow") and
+                  getprop("gear/gear[2]/wow")
+                ) {
+                  setprop("fdm/jsbsim/gear/wheel-chocks", !getprop("fdm/jsbsim/gear/wheel-chocks"));
+                }
+              </script>
+            </binding>
+          </item>
+        </menu>
+      </default>
+</PropertyList>

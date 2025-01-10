@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<!DOCTYPE system [
+ <!ENTITY U "systems/instr/DGMK-3">
+]>
+
+<system name="DGMK-3 remote gyromagnetic compass">
+ <!-- Дистанционный гиромагнитный компас ДГМК-3 -->
+
+ <property>&U;/pot/heading-bug-deg</property>
+
+ <property>systems/elec/output/DGMK-3/DC27-V</property>
+ <property>systems/elec/output/DGMK-3/DC27-ok</property>
+
+
+ <channel name="DGMK-3 slow" execrate="8">
+
+  <fcs_function name="systems/elec/output/DGMK-3/DC27-A">
+   <function>
+    <product>
+     <p>systems/elec/output/DGMK-3/DC27-V</p>
+     <!-- <= 85 W -->
+     <!-- = 85 W @ 28 V -->
+     <v>0.108</v>
+    </product>
+   </function>
+  </fcs_function>
+
+ </channel>
+
+
+ <channel name="DGMK-3" execrate="2">
+
+  <switch name="&U;/gauge/heading-deg">
+   <default value="attitude/psi-mag-deg"/>
+   <test value="&U;/gauge/heading-deg">
+    systems/elec/output/DGMK-3/DC27-ok EQ 0
+   </test>
+  </switch>
+
+ </channel>
+
+
+</system>

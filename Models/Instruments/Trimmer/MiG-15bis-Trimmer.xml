@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Trimmer.ac</path> 
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>TRM_Base</object-name>
+<object-name>TRM_Bolts</object-name>
+<object-name>TRM_ABase</object-name>
+<object-name>TRM_EBase</object-name>
+<object-name>TRM_AMessage</object-name>
+<object-name>TRM_EMessage</object-name>
+<object-name>TRM_Aileron</object-name>
+<object-name>TRM_Elevator</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>knob</type>
+    <object-name>TRM_Aileron</object-name>
+    <object-name>TRM_ABolt</object-name>
+    <property>controls/flight/aileron-trim</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-36</dep></entry>
+      <entry><ind>1</ind><dep>142</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.032</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/flight/aileron-trim</property>
+        <factor>0.02</factor>
+        <min>-1.0</min>
+        <max>1.0</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>TRM_Elevator</object-name>
+    <object-name>TRM_EBolt</object-name>
+    <property>controls/flight/elevator-trim</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-36</dep></entry>
+      <entry><ind>1</ind><dep>142</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.032</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/flight/elevator-trim</property>
+        <factor>0.02</factor>
+        <min>-1.0</min>
+        <max>1.0</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+</PropertyList> 

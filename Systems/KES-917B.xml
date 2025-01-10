@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY NAME       "KES-917B">
+ <!ENTITY U          "systems/instr/&NAME;">
+]>
+
+<system name="KES-917B fuel indicator">
+ <!-- Электрический авиационный керосиномер КЭС-917Б -->
+
+
+ <property>systems/elec/output/&NAME;/DC27-V</property>
+ <property>systems/elec/output/&NAME;/DC27-ok</property>
+
+
+ <channel name="KES-917B slow" execrate="8">
+
+  <pure_gain name="systems/elec/output/&NAME;/DC27-A">
+   <input>systems/elec/output/&NAME;/DC27-V</input>
+   <!-- = 5 W -->
+   <gain>0.00686</gain>
+  </pure_gain>
+
+ </channel>
+
+
+ <channel name="KES-917B" execrate="2">
+
+  <!-- TODO Indication error in extreme attitudes: probably magnetoresistive float sensor. -->
+
+  <!-- Fuel density 0.831 kg/l, see <propulsion>. -->
+
+  <fcs_function name="&U;/gauge/fuel-l">
+   <function>
+    <ifthen>
+     <p>systems/elec/output/&NAME;/DC27-ok</p>
+     <product>
+      <p>propulsion/tank[1]/contents-lbs</p>
+      <!-- = 0.45359237 kg/lb / 0.831 kg/l -->
+      <v>0.546</v>
+     </product>
+     <!-- TODO Adjust "off" value when 3d model is done. -->
+     <v>-47.619</v>
+    </ifthen>
+   </function>
+   <clipto>
+    <!-- TODO Adjust "off" value when 3d model is done. -->
+    <min>-47.619</min>
+    <max>1400.0</max>
+   </clipto>
+  </fcs_function>
+
+  <switch name="&U;/light/fuel-low">
+   <default value="0"/>
+   <test value="systems/elec/output/&NAME;/DC27-ok">
+    <!-- = 300 l * 0.45359237 kg/lb  / 0.831 kg/l -->
+    propulsion/tank[1]/contents-lbs LT 163.752
+   </test>
+  </switch>
+
+ </channel>
+
+
+</system>

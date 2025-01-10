@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE system [
+ <!ENTITY U "systems/instr/AChH">
+]>
+
+<system name="AChH clock">
+ <!-- Часы АЧХ -->
+
+ <!--
+  I only did the second hand and timer here.
+  The hour and minute hands are really better off with FG /sim/time.
+ -->
+
+
+ <property>&U;/button/stopwatch</property>
+ <property>&U;/button/flighttimer</property>
+
+
+ <channel name="AChH fast" execrate="4">
+
+  <!-- Timer modes: 0: Reset, 1: Run, 2: Stop -->
+
+  <switch name="&U;/internal/stopwatch">
+   <default value="&U;/internal/stopwatch"/>
+   <test value="&U;/internal/stopwatch">
+    &U;/button/stopwatch EQ 0
+   </test>
+   <test value="0">
+    &U;/internal/stopwatch-latch EQ 2
+   </test>
+   <test value="1">
+    &U;/internal/stopwatch-latch EQ 0
+   </test>
+   <test value="2">
+    &U;/internal/stopwatch-latch EQ 1
+   </test>
+  </switch>
+
+  <switch name="&U;/internal/stopwatch-latch">
+   <default value="&U;/internal/stopwatch"/>
+   <test value="&U;/internal/stopwatch-latch">
+    &U;/button/stopwatch NE 0
+   </test>
+  </switch>
+
+  <switch name="&U;/flag/flighttimer">
+   <default value="&U;/flag/flighttimer"/>
+   <test value="&U;/flag/flighttimer">
+    &U;/button/flighttimer EQ 0
+   </test>
+   <test value="0">
+    &U;/internal/flighttimer-latch EQ 2
+   </test>
+   <test value="1">
+    &U;/internal/flighttimer-latch EQ 0
+   </test>
+   <test value="2">
+    &U;/internal/flighttimer-latch EQ 1
+   </test>
+  </switch>
+
+  <switch name="&U;/internal/flighttimer-latch">
+   <default value="&U;/flag/flighttimer"/>
+   <test value="&U;/internal/flighttimer-latch">
+    &U;/button/flighttimer NE 0
+   </test>
+  </switch>
+
+ </channel>
+
+
+ <channel name="AChH" execrate="24">
+  <!-- Period: 0.4 s, i.e. tick every 0.2 s. -->
+
+  <switch name="&U;/gauge/seconds-s">
+   <default value="simulation/sim-time-sec"/>
+  </switch>
+
+  <switch name="&U;/internal/stopwatch-start-s">
+   <default value="simulation/sim-time-sec"/>
+   <test value="&U;/internal/stopwatch-start-s">
+    &U;/internal/stopwatch NE 0
+   </test>
+  </switch>
+
+  <switch name="&U;/internal/stopwatch-stop-s">
+   <default value="simulation/sim-time-sec"/>
+   <test value="&U;/internal/stopwatch-stop-s">
+    &U;/internal/stopwatch EQ 2
+   </test>
+  </switch>
+
+  <summer name="&U;/gauge/stopwatch-s">
+   <input>&U;/internal/stopwatch-stop-s</input>
+   <input>-&U;/internal/stopwatch-start-s</input>
+  </summer>
+
+  <switch name="&U;/internal/flighttimer-start-s">
+   <default value="simulation/sim-time-sec"/>
+   <test value="&U;/internal/flighttimer-start-s">
+    &U;/flag/flighttimer NE 0
+   </test>
+  </switch>
+
+  <switch name="&U;/internal/flighttimer-stop-s">
+   <default value="simulation/sim-time-sec"/>
+   <test value="&U;/internal/flighttimer-stop-s">
+    &U;/flag/flighttimer EQ 2
+   </test>
+  </switch>
+
+  <summer name="&U;/gauge/flighttimer-s">
+   <input>&U;/internal/flighttimer-stop-s</input>
+   <input>-&U;/internal/flighttimer-start-s</input>
+  </summer>
+
+ </channel>
+
+
+</system>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <view n="0">
+      <name>Pilot View</name>
+      <internal type="bool" archive="y">true</internal>
+      <config>
+        <x-offset-m type="double" archive="y">0.0</x-offset-m>
+        <y-offset-m type="double" archive="y">0.84</y-offset-m>
+        <z-offset-m type="double" archive="y">2.34</z-offset-m>
+        <pitch-offset-deg type="double">-11</pitch-offset-deg>
+        <default-field-of-view-deg type="double">80</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="1">
+      <config>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="2">
+      <config>
+        <y-offset-m archive="y" type="double">3.4</y-offset-m>
+        <z-offset-m archive="y" type="double">20</z-offset-m>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+        <heading-offset-deg archive="y" type="double">180</heading-offset-deg>
+      </config>
+    </view>
+
+    <view n="3">
+      <config>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="4">
+      <config>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="5">
+      <config>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+        <z-offset-m type="double">20</z-offset-m>
+        <heading-offset-deg archive="y" type="double">180</heading-offset-deg>
+      </config>
+    </view>
+
+    <view n="6">
+      <config>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="7">
+      <config>
+        <target-z-offset-m archive="y" type="double">3.75</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="100">
+      <name>Headsight View</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <x-offset-m type="double">0.0</x-offset-m>
+        <y-offset-m type="double">0.84</y-offset-m>
+        <z-offset-m type="double">1.94</z-offset-m>
+        <pitch-offset-deg type="double">-10.0</pitch-offset-deg>
+        <roll-offset-deg type="double">0.0</roll-offset-deg>
+        <heading-offset-deg type="double">0.0</heading-offset-deg>
+        <default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="101">
+      <name>Drop View</name>
+      <type>lookat</type>
+      <config>
+        <eye-fixed type="bool">true</eye-fixed>
+        <eye-lat-deg-path>sim/view[101]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>sim/view[101]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>sim/view[101]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>sim/view[101]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>sim/view[101]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>sim/view[101]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">8.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">4.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="102">
+      <name>Right Panel View</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0.7</y-offset-m>
+        <z-offset-m type="double">1.94</z-offset-m>
+        <pitch-offset-deg type="double">-45</pitch-offset-deg>
+        <heading-offset-deg type="double">-70</heading-offset-deg>
+        <default-field-of-view-deg type="double">75</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="103">
+      <name>Left Panel View</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0.70</y-offset-m>
+        <z-offset-m type="double">1.94</z-offset-m>
+        <pitch-offset-deg type="double">-45</pitch-offset-deg>
+        <heading-offset-deg type="double">70</heading-offset-deg>
+        <default-field-of-view-deg type="double">75</default-field-of-view-deg>
+      </config>
+    </view>
+</PropertyList>

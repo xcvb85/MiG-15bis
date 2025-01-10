@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+      <title>MiG-15 bis</title>
+      <key>
+        <name>Ctrl-F</name>
+        <desc>Toggle cannon saFer switch (on at startup)</desc>
+      </key>
+      <key>
+        <name>F</name>
+        <desc>Fire cannon</desc>
+      </key>
+      <key>
+        <name>Shift-F</name>
+        <desc>Drop tanks to Free Float</desc>
+      </key>
+      <key>
+        <name>Shift-C</name>
+        <desc>Open/Close Canopy (Open at start up)</desc>
+      </key>
+      <key>
+        <name>Shift-K</name>
+        <desc>Toggle trajectory markers</desc>
+      </key>
+      <key>
+        <name>Ctrl-K</name>
+        <desc>Toggle engine emergency braKe (On at start up)</desc>
+      </key>
+      <key>
+        <name>Shift-L</name>
+        <desc>Toggle auto-coordination</desc>
+      </key>
+      <key>
+        <name>Shift-U</name>
+        <desc>Update drop view position</desc>
+      </key>
+      <key>
+        <name>q/Q</name>
+        <desc>More/Less aileron booster (Middle at start up)</desc>
+      </key>
+      <key>
+        <name>Ctrl-Q</name>
+        <desc>Toggle main pump power switch</desc>
+      </key>
+      <key>
+        <name>R</name>
+        <desc>Lock/Unlock thRottle handle (Locked at start up)</desc>
+      </key>
+      <key>
+        <name>Shift-R</name>
+        <desc>On/Off low throttle holdeR</desc>
+      </key>
+      <key>
+        <name>Ctrl-S</name>
+        <desc>Toggle Starter power switch</desc>
+      </key>
+      <key>
+        <name>Shift-S</name>
+        <desc>Earth/Air Starter ignition type (Earth at start up)</desc>
+      </key>
+      <key>
+        <name>d/D</name>
+        <desc>Ajust sight target Distance (400m at start up)</desc>
+      </key>
+      <key>
+        <name>Ctrl-D</name>
+        <desc>Up/down heaDsight (up at start up)</desc>
+      </key>
+      <key>
+        <name>E</name>
+        <desc>Toggle battEry switch</desc>
+      </key>
+      <key>
+        <name>Shift-E</name>
+        <desc>Toggle APU gEnerator switch</desc>
+      </key>
+      <key>
+        <name>Ctrl-E</name>
+        <desc>Toggle Engine instrumEntation powEr switch</desc>
+      </key>
+      <key>
+        <name>Ctrl-B</name>
+        <desc>Toggle speedbrakes (closed at start up)</desc>
+      </key>
+      <key>
+        <name>j</name>
+        <desc>Close speedbrakes</desc>
+      </key>
+      <key>
+        <name>k</name>
+        <desc>Open speedbrakes</desc>
+      </key>
+      <key>
+        <name>`</name>
+        <desc>Toggle engine isolation valve</desc>
+      </key>
+      <key>
+        <name>U</name>
+        <desc>Toggle fUel source, main or balance tank</desc>
+      </key>
+      <key>
+        <name>Shift-L</name>
+        <desc>Toggle auto-coordination</desc>
+      </key>
+      <key>
+        <name>L</name>
+        <desc>Toggle Landing Light (ALS only)</desc>
+      </key>
+      <key>
+        <name>y</name>
+        <desc>Hide/show flight stick</desc>
+      </key>
+      <line>
+Detailed documentation in /MiG-15/Documentation directory        
+      </line>
+      <text>
+=== LOAD LIMITS ===========================================
+- Max. load:         8 g
+- Destructive load: 12 g
+
+=== MAX.SPEED, CLEAN ======================================
+      ... 900 m: IAS = 1070 km/h
+ 900 m...5000 m:   M = 0.92
+5000 m...7500 m:   M = 0.96
+7500 m...      :   M = 1.00
+
+=== MAX.SPEED, WITH DROP TANKS ============================
+      ...3500 m: IAS = 700 km/h
+3500 m...      :   M = 0.7
+
+=== GEAR / FLAP SPEEDS ====================================
+Gear extended: 400 km/h
+Flaps 20deg:   500 km/h
+Flaps 55deg:   380 km/h
+Touchdown:     250 km/h
+
+=== BEST CLIMB SPEED ======================================
+v_true = 710 km/h (11560 rpm)
+
+=== MINIMUM MANEUVERING SPEED =============================
+v_ind = 300 km/h
+
+BE CAREFUL to stay above 300km/h during approach until the
+correct glidepath is established. The design landing weight
+is 4010 kg. When landing at a higher weight, increase speed.
+
+=== ENGINE LIMITS =========================================
+- Max.power ( 5min): 11560 rpm
+- Nominal   (60min): 11200 rpm
+- Cruise           : 10870 rpm
+- Max temperature  :   825 degC
+
+The engine will flame out if you keep throttle to idle;
+increase throttle to 7000 rpm to taxi.
+
+=== DROP TANKS INDICATOR LIGHT ============================
+On the lower center panel (between the pilot's knees) there
+is an indicator light to the left and a switch to the
+right. Turn on the switch to activate the indicator light.
+The lamp will light up if the drop tanks are empty
+*OR* if the engine speed is lower than 6500 RPM.
+This means: In order to check if the tanks are empty it is
+neccessary to accelerate the engine to at least 6500 RPM.
+      
+=== TAKEOFF ===============================================
+- Flaps 20deg
+- Push stick forward during acceleration
+- At 195km/h gently lift front wheel
+- Rotate only 5deg and let aircraft lift off by itself
+- Unstick speed 223km/h (with external tanks 235km/h)
+- Retract gear and flaps immediately after liftoff
+- Accelerate to 400km/h
+
+=== LANDING ===============================================
+- Throttle to minimum
+- Extend speed brakes
+- Slow down to 450 km/h
+- Extend gear
+- Flaps 20 deg
+- Slow down to 350 km/h
+- Flaps 55 deg
+- Increase throttle to maintain 300 km/h
+- Align with runway
+- Release throttle holder (Shift+R)
+- Final approach 250 km/h (4010 kg)
+- Throttle to idle above runway threshold
+- Flare at 225 km/h
+- Touch down at 172 km/h (4010 kg)
+- Apply brakes
+      </text>
+</PropertyList>
