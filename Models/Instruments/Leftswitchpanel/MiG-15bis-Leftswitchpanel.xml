@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-  <path>MiG-15bis-Leftswitchpanel.ac</path> 
+  <path>MiG-15bis-Leftswitchpanel.gltf</path> 
 
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>

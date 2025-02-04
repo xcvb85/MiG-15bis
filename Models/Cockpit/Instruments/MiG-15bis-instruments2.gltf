@@ -544,9 +544,9 @@
     "materials" : [
         {
             "emissiveFactor" : [
-                1,
-                1,
-                1
+                3,
+                3,
+                3
             ],
             "emissiveTexture" : {
                 "index" : 0

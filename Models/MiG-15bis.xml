@@ -18,7 +18,7 @@
     <path>Aircraft/MiG-15bis/Models/Cockpit/MiG-15bis-right-panel.xml</path>
   </model>
   <model>
-    <path>Aircraft/MiG-15bis/Models/Stores/Seat/Seat.ac</path>
+    <path>Aircraft/MiG-15bis/Models/Stores/Seat/Seat.gltf</path>
   </model>
 
   <animation>

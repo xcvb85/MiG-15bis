@@ -4,12 +4,6 @@
 
   <path>MiG-15bis-Gearcontrol.gltf</path>
 
-    <animation>
-    <type>range</type>
-    <min-m>0</min-m>
-    <max-m>30</max-m>
-  </animation>
-
   <!--
 
 <animation>

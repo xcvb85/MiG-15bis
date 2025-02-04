@@ -61,12 +61,6 @@
     ],
     "materials" : [
         {
-            "doubleSided" : true,
-            "emissiveFactor" : [
-                0.004999999888241291,
-                0.004999999888241291,
-                0.004999999888241291
-            ],
             "name" : "BlackMetal",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
@@ -78,12 +72,6 @@
             }
         },
         {
-            "doubleSided" : true,
-            "emissiveFactor" : [
-                0.10000000149011612,
-                0.10000000149011612,
-                0.10000000149011612
-            ],
             "name" : "Plate",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {

@@ -4,6 +4,7 @@
 <!--
   <animation>
     <type>pbr</type>
+    <property-base>instrumentation/pb</property-base>
     <object-name>FM_Needle</object-name>
     <object-name>FM_Backplate</object-name>
     <object-name>FM_Foreplate</object-name>
@@ -29,17 +30,6 @@
     <object-name>TM_Backplate</object-name>
     <object-name>TM_Foreplate</object-name>
     <object-name>TM_Ball</object-name>
-    <emissive-factor>
-      <red>0.0</red>
-      <green><property>systems/light/canopy-lamps-norm</property></green>
-      <blue><property>systems/light/canopy-lamps-norm</property></blue>
-    </emissive-factor>
-  </animation>
-  -->
-<!-- Instrument from AN-24 -->
-<!-- Achs-1, clock -->
-  <animation>
-    <type>pbr</type>
     <object-name>face</object-name>
     <object-name>mode_ind_flag</object-name>
     <object-name>hour_needle</object-name>
@@ -47,14 +37,11 @@
     <object-name>sec_needle</object-name>
     <emissive-factor>
       <red>0.0</red>
-      <green>
-        <property>systems/light/canopy-lamps-norm</property>
-      </green>
-      <blue>
-        <property>systems/light/canopy-lamps-norm</property>
-      </blue>
+      <green><property>systems/light/canopy-lamps-norm</property></green>
+      <blue><property>systems/light/canopy-lamps-norm</property></blue>
     </emissive-factor>
   </animation>
+  -->
   <!-- *********************** Left knob; ********************************************
 	Neutral: Wind-up (only CCW)
 	Press: Cycle through modes (red-white/white/red flag)

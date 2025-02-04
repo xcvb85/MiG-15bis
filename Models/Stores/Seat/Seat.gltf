@@ -1,0 +1,204 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "CP_Seat"
+        },
+        {
+            "mesh" : 1,
+            "name" : "CP_SeatDown"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "BlackTiredMetal.003",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.08650044351816177,
+                    0.11953850835561752,
+                    0.14995986223220825,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.30000001192092896
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "BrownKoja.001",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.30000001192092896
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "CP_Seat.mesh.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "CP_SeatDown.mesh.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1379,
+            "max" : [
+                2.5436699390411377,
+                0.23586000502109528,
+                0.7880300283432007
+            ],
+            "min" : [
+                1.687209963798523,
+                -0.23871000111103058,
+                -0.29559001326560974
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1379,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1379,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 2115,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 1547,
+            "max" : [
+                2.5112600326538086,
+                0.1984100043773651,
+                0.773169994354248
+            ],
+            "min" : [
+                2.1793699264526367,
+                -0.20159003138542175,
+                0.005569996777921915
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 1547,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 1547,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 2604,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 16548,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 16548,
+            "byteOffset" : 16548
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 11032,
+            "byteOffset" : 33096
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4230,
+            "byteOffset" : 44128
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18564,
+            "byteOffset" : 48360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18564,
+            "byteOffset" : 66924
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12376,
+            "byteOffset" : 85488
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5208,
+            "byteOffset" : 97864
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 103072,
+            "uri" : "Seat.bin"
+        }
+    ]
+}
